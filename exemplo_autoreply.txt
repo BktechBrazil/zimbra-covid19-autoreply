@@ -1,0 +1,4 @@
+zmprov ma "fabio@domain.com.br" ZimbraPrefOutOfOfficeReply "Estou com acesso restrito aos e-mails..."
+zmprov ma "fabio@domain.com.br" ZimbraPrefOutOfOfficeReplyEnabled TRUE
+zmprov ma "fabio@domain.com.br" zimbraPrefOutOfOfficeCacheDuration "1d"
+zmprov ma "fabio@domain.com.br" zimbraPrefOutOfOfficeStatusAlertOnLogin "FALSE"
