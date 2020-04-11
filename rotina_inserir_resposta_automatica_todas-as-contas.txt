@@ -1,0 +1,17 @@
+zmprov -l gaa > contas.txt
+for conta in `cat contas.txt`; do echo "cat mensagem.txt | xargs -0 zmprov ma \"$conta\" ZimbraPrefOutOfOfficeReply";done > 1-mensagem-automatica.sh
+export LC_ALL="pt_BR.UTF-8" (colocar no começo do arquivo 1-... gerado
+chmod u+x 1-mensagem-automatica.sh
+./1-mensagem-automatica.sh
+
+for conta in `cat contas.txt`; do echo "ma \"$conta\" ZimbraPrefOutOfOfficeReplyEnabled TRUE";done > 2-habilitar-resposta.txt
+
+zmprov -f 2-habilitar-resposta.txt
+
+for conta in `cat contas.txt`; do echo "ma \"$conta\" zimbraPrefOutOfOfficeCacheDuration "1d"";done > 3-resposta-diaria.txt
+
+zmprov -f 3-resposta-diaria.txt
+
+for conta in `cat contas.txt`; do echo "ma \"$conta\" zimbraPrefOutOfOfficeStatusAlertOnLogin FALSE";done > 4-desabilitar-aviso.txt
+
+zmprov -f 4-desabilitar-aviso.txt
